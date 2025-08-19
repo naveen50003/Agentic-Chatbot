@@ -1,0 +1,13 @@
+langchain
+python-dotenv
+langchain-openai
+langchain_groq
+langchain_core
+langgraph
+langchain-community
+arxiv
+wikipedia
+langchain-tavily
+faiss-cpu
+tavily-python
+streamlit
