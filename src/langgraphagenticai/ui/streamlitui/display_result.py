@@ -15,6 +15,8 @@ class DisplayResultsStreamlit:
         graph=self.graph
         user_message= self.user_message
         print(user_message)
+        print(graph)
+        print(usecase)
         if usecase == 'Basic Chatbot':
             for event in graph.stream({'messages': user_message}):
                 print(event)
@@ -32,6 +34,7 @@ class DisplayResultsStreamlit:
         elif usecase == 'Chatbot With Web':
             initial_state = {"messages": user_message}
             res=graph.invoke(initial_state)
+            print("final response:::", res)
             for message in res["messages"]:
                 if type(message) == HumanMessage:
                     with st.chat_message("user"):

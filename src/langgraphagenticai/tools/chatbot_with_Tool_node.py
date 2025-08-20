@@ -28,13 +28,18 @@ class ChatbotWithToolNode:
         Returns a chatbot node function
         """
         llm_with_tools = self.llm.bind_tools(tools)
+        print("tools")
+        print(tools)
         def chatbot_node(state: State):
             """
             Chatbot logic for processing the input state and returning a response.
             """
             print("chatbot_node::")
             print(state)
+            result=llm_with_tools.invoke(state["messages"])
+            print("result from LLM::::")
+            print(result)
             return {
-                "messages": [llm_with_tools.invoke(state["messages"])]
+                "messages": [result]
             }
         return chatbot_node
